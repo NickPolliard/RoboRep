@@ -1,0 +1,202 @@
+@font-face {
+    font-family: "gt-walsheim";
+    src: url("./gt_walsheim/gt-walsheim-regular.ttf");
+}
+
+@font-face {
+    font-family: "gt-walsheim-bold";
+    src: url("./gt_walsheim/gt-walsheim-bold.ttf");
+}
+
+@font-face {
+    font-family: "gt-walsheim-light";
+    src: url("./gt_walsheim/gt-walsheim-light.ttf");
+}
+
+@font-face {
+    font-family: "gt-walsheim-oblique";
+    src: url("./gt_walsheim/gt-walsheim-regular-oblique.ttf");
+}
+
+@font-face {
+    font-family: "gt-walsheim-medium";
+    src: url("./gt_walsheim/gt-walsheim-medium.ttf");
+}
+
+
+body{
+    font-family: "gt-walsheim", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #110630;
+}
+
+h1 {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+}
+
+label{
+    letter-spacing: 0.4px;
+}
+
+table{
+    line-height: 3rem;
+    text-align: left;
+}
+
+th{
+    font-weight: inherit;
+}
+
+.page-grid{
+    margin-left: 57px;
+    margin-right: 49px;
+}
+
+.Select-placeholder{
+    color: #665F79;
+}
+
+.Select-control {
+    border: 1px solid #DAE1EA;
+    border-radius: 3px;
+    height: 3rem;
+}
+
+.Select-menu-outer{
+    border-bottom: 1px solid #DAE1EA;
+    border-left: 1px solid #DAE1EA;
+    border-right: 1px solid #DAE1EA;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.Select--single>.Select-control .Select-value, .Select-placeholder, .Select-input
+{
+    line-height: 3rem;
+}
+
+.form-control{
+    height: 3rem;
+}
+
+.card{
+    box-shadow: 0px 3px 6px #00000029;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.nav{
+    font-family: "gt-walsheim-bold", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9375rem;
+    line-height: 19px;
+    letter-spacing: 0.9px;
+}
+
+.nav-link:not(.active){
+    opacity: 0.45;
+}
+
+.nav-link.active{
+    color: #110630;
+}
+
+.banner{
+    font-family: "gt-walsheim-light", sans-serif;
+    height: 3rem;
+    font-size: 0.8125rem;
+    letter-spacing: 1px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #192e1f;
+}
+
+.btn{
+    font-family: "gt-walsheim-medium", sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+    border-radius: 0.1875rem;
+    text-transform: uppercase;
+    height: 3rem;
+    min-width: 6.375rem
+}
+
+.btn:disabled{
+    color: rgb(174, 183, 197);
+    background: rgb(234, 234, 234);
+    border-color: currentcolor;
+}
+
+.btn-dark{
+    background: #110630;
+    border: 1px solid #110630;
+}
+
+.btn-dark:hover{
+    background: rgb(93, 45, 197);
+    outline-color: rgb(93, 45, 197);
+}
+
+.btn-light{
+    background: #FFFFFF;
+    border: 1px solid #110630;
+}
+
+.btn-primary{
+    background: #3D74D5;
+}
+
+.btn-secondary{
+    background: #FFFFFF;
+    color: #110630;
+    border: 1px solid #110630;
+}
+
+.btn-add{
+    border: 0;
+    background: #FFFFFF;
+}
+
+.btn-add:focus, .btn-bare:focus{
+    box-shadow: none;
+}
+
+.btn-block + .btn-block{
+    margin-top: 0;
+}
+
+
+.search-input{
+    background: rgba(0, 0, 0, 0);
+    border: 0
+}
+
+.search-input:focus{
+    background: inherit;
+    border: 0;
+    box-shadow: none;
+}
+
+.search-box{
+    font-family: "gt-walsheim-oblique", sans-serif;
+    background: #F4F7FB;
+    border-radius: 4px;
+}
+
+.search-box:focus-within{
+    border: 1px solid #2ade93;
+}
+
+.warning{
+    background: #FFE652;
+    border: 1px solid #FFDA40;
+}
+
+/*.VirtualizedSelectOption{*/
+/*    height: 70px;*/
+/*}*/
