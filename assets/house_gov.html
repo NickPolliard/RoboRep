@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html  lang="en" dir="ltr">
+<head><base href="https://ziplook.house.gov"><!--  <link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/themes/calcite/dijit/calcite.css"> -->
+    <!--  <link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/themes/calcite/esri/esri.css"> -->
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.26/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/css/esri.css">
+
+
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0px; padding: 0px }
+        #map_canvas { height: 100%; width: 100%; padding: 0; margin: 0 }
+        p.rep img.repLink {padding-right: 0 !important; }
+
+    </style>
+
+
+    <meta charset="utf-8" />
+    <link rel="canonical" href="http://www.house.gov/blank" />
+    <meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://www.house.gov/sites/default/themes/housegov/favicon.ico" type="image/vnd.microsoft.icon" />
+
+    <title>| house.gov</title>
+    <link rel="stylesheet" media="all" href="https://www.house.gov/sites/default/files/css/css_61XlMVhgD_onu8KtEe5rMkXPjKj0vZiE6N-Nczvsfv0.css?delta=0&amp;language=en&amp;theme=housegov&amp;include=eJxFylsOgCAMRNENgSyJFGgQrVQpGNm9mvj4O3cy0qXiYhwIqpGbYOTdRGIHpKV2Sjn--wvtodwkhUe9LrMJpa1Aw5Nq2hqWbluy4D2XkDibTydSwi2z" />
+    <link rel="stylesheet" media="all" href="https://www.house.gov/sites/default/files/css/css_umwJEJp5ol85E_gcKRD6ggKhFtIVzn7D11xlaPlBYLk.css?delta=1&amp;language=en&amp;theme=housegov&amp;include=eJxFylsOgCAMRNENgSyJFGgQrVQpGNm9mvj4O3cy0qXiYhwIqpGbYOTdRGIHpKV2Sjn--wvtodwkhUe9LrMJpa1Aw5Nq2hqWbluy4D2XkDibTydSwi2z" />
+
+
+
+    <script>
+        dataLayer = [];
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TQX94K2');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+<body class="path-blank" style="background-color: transparent;">
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQX94K2" height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true" ></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="skip-div"><a href="index.html#main-content" class="visually-hidden focusable skip-link">
+    Skip to main content
+</a></div>
+
+<div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+
+
+
+
+    <div id = "main-content-section" role="main" class="main-container container js-quickedit-main-content">
+
+        <div class="row">
+            <div class="col-xs-16 col-sm-16 global__header">
+                <div class="region region-header">
+                    <a class="logo navbar-btn pull-left" href="https://www.house.gov/" title="Home" rel="home">
+                        <img src="https://www.house.gov/sites/default/themes/housegov/logo.svg" alt="Home" />
+                    </a>
+                    <a class="name navbar-brand" href="https://www.house.gov/" title="Home" rel="home">house.gov</a>
+
+
+                    <section id="block-housegov-search" class="block-housegov-search block block-block-content block-block-contentd5a05810-b7e4-413a-af00-eaf9f28ca0a7 clearfix">
+
+
+
+
+                        <div class="field field--name-field-block-custom-html-body field--type-text-long field--label-hidden field--item"><form action="https://search.house.gov/" class="clearfix" id="header-site-search-form" method="get"><label for="search">Search: <input id="search" maxlength="45" name="search" type="text" value></label><button class="goButton" id="header-site-search-submit" type="submit" value="Search">Search</button></form>
+                            <script type="text/javascript">
+
+                                var baseUrl = window.location.host;
+                                if (baseUrl.includes("dev")) {
+                                    document.getElementById("header-site-search-form").action = "https://search.dev-hir.house.gov/";
+                                } else if (baseUrl.includes("stg")) {
+                                    document.getElementById("header-site-search-form").action = "https://search.stg-hir.house.gov/";
+                                }
+
+                            </script></div>
+
+                    </section>
+
+
+
+                    <section id="block-housegov-findyourrepresentative" class="block-housegov-findyourrepresentative block block-block-content block-block-content6e26d94e-436d-443a-b200-ec41d4acf195 clearfix">
+
+
+
+
+                        <div class="field field--name-field-block-custom-html-body field--type-text-long field--label-hidden field--item"><div class="block-title">Find Your Representative</div>
+
+                            <form action="https://ziplook.house.gov/htbin/findrep_house" class="clearfix" id="header-find-rep">
+                                <div class="searchbar">
+                                    <div class="row zip"><!-- row START-->
+                                        <div class="col-md-6"><label for="header-find-rep-zip-code">Enter your zip code: <input id="header-find-rep-zip-code" maxlength="10" name="ZIP" size="10" type="text"></label></div>
+
+                                        <div class="col-md-6"><button class="zip goButton" type="submit" value="Look up">Look up</button></div>
+                                    </div>
+                                    <!-- row END--></div>
+                                <!-- searchbar END--></form>
+                            <script type="text/javascript">
+
+                                var baseUrl = window.location.host;
+                                if (baseUrl.includes("dev")) {
+                                    document.getElementById("header-find-rep").action = "https://ziplook.dev-hir.house.gov/htbin/findrep_house";
+                                } else if (baseUrl.includes("stg")) {
+                                    document.getElementById("header-find-rep").action = "https://ziplook.stg-hir.house.gov/htbin/findrep_house";
+                                }
+
+                            </script></div>
+
+                    </section>
+
+                    <nav aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="block-mainnavigation">
+
+                        <ul class="menu nav navbar-nav">
+                            <li>
+                                <a href="https://www.house.gov/representatives" data-drupal-link-system-path="representatives">Representatives</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/leadership" data-drupal-link-system-path="node/3">Leadership</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/committees" data-drupal-link-system-path="node/4">Committees</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/legislative-activity" data-drupal-link-system-path="legislative-activity">Legislative Activity</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/the-house-explained" title="The House Explained" data-drupal-link-system-path="node/24">The House Explained</a>
+                            </li>
+                        </ul>
+
+
+
+                    </nav>
+                    <nav role="navigation" aria-labelledby="block-secondarynavigation-2-menu" id="block-secondarynavigation-2">
+
+                        <div class="visually-hidden" id="block-secondarynavigation-2-menu">Secondary navigation</div>
+
+
+
+                        <ul class="menu nav">
+                            <li>
+                                <a href="https://www.house.gov/visitors" title="Visitors" data-drupal-link-system-path="node/5">Visitors</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/educators-and-students" data-drupal-link-system-path="node/6">Educators and Students</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/media" title="Media" data-drupal-link-system-path="node/7">Media</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/doing-business-with-the-house" title="Doing Business with the House" data-drupal-link-system-path="node/8">Doing Business with the House</a>
+                            </li>
+                            <li>
+                                <a href="https://www.house.gov/employment" data-drupal-link-system-path="node/9">Employment</a>
+                            </li>
+                        </ul>
+
+
+
+                    </nav>
+
+
+                    <section id="block-houseinsession" class="block block-housegov-in-session block-housegov-in-session-block clearfix">
+
+
+
+                        <div id="house-in-session"></div>
+                    </section>
+
+
+                </div>
+
+
+
+                <nav class="block-mobilemenu--wrapper" >
+                    <button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation" class="block-mobilemenu--toggler navbar-toggler">
+                        &#9776;
+                    </button>
+                    <div id="exCollapsingNavbar" class="block-mobilemenu--content collapse">
+
+
+                        <section id="block-sitewidesearchmobile" class="block block-block-content block-block-content9aef5697-fb6a-43ce-bcf0-830b5bcb27c5 clearfix">
+
+
+
+
+                            <div class="field field--name-field-block-custom-html-body field--type-text-long field--label-hidden field--item"><form action="https://search.house.gov/" class="clearfix" id="header-site-search-form-mobile" method="get">
+                                <div class="searchbar">
+                                    <div for="header-site-search-mobile">Search: <input id="header-site-search-mobile" maxlength="45" name="search" type="text" value></div>
+                                    <button class="goButton" id="header-site-search-mobile-submit" type="submit" value="Search">Search</button></div>
+                            </form>
+                                <script type="text/javascript">
+
+                                    var baseUrl = window.location.host;
+                                    if (baseUrl.includes("dev")) {
+                                        document.getElementById("header-site-search-form-mobile").action = "https://search.dev-hir.house.gov/";
+                                    } else if (baseUrl.includes("stg")) {
+                                        document.getElementById("header-site-search-form-mobile").action = "https://search.stg-hir.house.gov/";
+                                    }
+
+                                </script></div>
+
+                        </section>
+
+                        <nav aria-labelledby="block-mainnavigation-2-menu" id="block-mainnavigation-2" class="block-mainnavigation">
+
+                            <ul class="menu nav navbar-nav">
+                                <li>
+                                    <a href="https://www.house.gov/representatives" data-drupal-link-system-path="representatives">Representatives</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/leadership" data-drupal-link-system-path="node/3">Leadership</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/committees" data-drupal-link-system-path="node/4">Committees</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/legislative-activity" data-drupal-link-system-path="legislative-activity">Legislative Activity</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/the-house-explained" title="The House Explained" data-drupal-link-system-path="node/24">The House Explained</a>
+                                </li>
+                            </ul>
+
+
+
+                        </nav>
+                        <nav role="navigation" aria-labelledby="block-secondarynavigation-menu" id="block-secondarynavigation" class="block-secondarynavigation">
+
+                            <div class="visually-hidden" id="block-secondarynavigation-menu">Secondary navigation</div>
+
+
+
+                            <ul class="menu nav">
+                                <li>
+                                    <a href="https://www.house.gov/visitors" title="Visitors" data-drupal-link-system-path="node/5">Visitors</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/educators-and-students" data-drupal-link-system-path="node/6">Educators and Students</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/media" title="Media" data-drupal-link-system-path="node/7">Media</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/doing-business-with-the-house" title="Doing Business with the House" data-drupal-link-system-path="node/8">Doing Business with the House</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.house.gov/employment" data-drupal-link-system-path="node/9">Employment</a>
+                                </li>
+                            </ul>
+
+
+
+                        </nav>
+
+                    </div>
+                </nav>
+
+
+            </div>
+        </div>
+
+        <div class = "row">
+            <section class="col-xs-16">
+
+
+
+
+
+                <a id="main-content" aria-hidden="true"></a>
+                <div class="region region-content">
+                    <div data-drupal-messages-fallback class="hidden"></div>
+
+
+                    <div class="row">
+                        <div class="col-xs-16 col-md-12 push-md-4 repmap">
+                            <div id="contentMain" class="grid_12">
+                                <div class="mapPlaceholder calcite">
+                                    <div id="map" style="width:700; height:500px">  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-16 col-md-4 pull-md-12 repdistrict">
+
+                            <h1>Find Your Representative</h1>
+
+                            <p>
+                                <strong>Information provided:</strong><br>
+                                <em>Zip code: 28804
+                                </em><br>
+
+                                is located in the 11th Congressional district of North Carolina.
+
+                            <p>The representative for this district is:</p>
+
+                            <div id="PossibleReps">
+                                <div name="RepeatReps" id="RepInfo">
+                                    <p class="rep color4"><img src="/zip/pictures/nc11_edwards.jpg" alt="" border="0" class="repPhoto" /><br>
+                                        <a href="https://edwards.house.gov">Chuck Edwards </a><br>
+                                        Republican<br>
+                                        <a href="https://edwards.house.gov"><img src="/content/static/img/icon-web.gif" width="13" height="13" alt="Go to website" class="repLink"></a>
+                                        <a href="https://edwards.house.gov/address_authentication?form=/contact"><img src="/content/static/img/icon-email.gif" width="17" height="11" alt="Go to contact form" class="repLink"></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </div>
+    <footer class="footer container">
+        <div class="region row region-footer">
+            <section id="block-footer-content" class="block col-sm-4 block-block-content block-block-contentbf4bee14-47e9-447f-ba00-c2b312d1d662 clearfix">
+
+                <div class="field field--name-field-block-node-embed-ref field--type-entity-reference field--label-hidden field--item"><article class="housegov-page default clearfix">
+                    <div class="content">
+
+                        <div class="field field--name-field-page-body field--type-text-long field--label-hidden field--item"><p>U.S. House of Representatives<br>
+                            Washington, DC 20515<br>
+                            Phone: <a href="tel:+12022243121">202-224-3121</a><br>
+                            TTY: <a href="tel:+12022251904">202-225-1904</a></p></div>
+
+                        <div class="entity-ref-tab-formatter-accordion" id="entity-ref-accordion-formatter">
+                        </div>
+
+                    </div>
+                </article>
+                </div>
+
+            </section>
+            <section id="block-footer-menu" class="block col-sm-12 block-system block-system-menu-blockfooter clearfix">
+
+                <ul class="menu nav">
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/accessibility" data-drupal-link-system-path="node/10">Accessibility</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/contact-webmaster" data-drupal-link-system-path="node/95">Contact Webmaster</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/feature-stories" data-drupal-link-system-path="feature-stories">Feature Stories</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/privacy-policy" data-drupal-link-system-path="node/98">Privacy Policy</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/sitemap" data-drupal-link-system-path="sitemap">Site Map</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/site-tools" data-drupal-link-system-path="node/97">Site Tools</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/terms-of-use" data-drupal-link-system-path="node/96">Terms of Use</a>
+                    </li>
+                    <li class="expanded dropdown">
+                        <a href="https://www.house.gov/watch-houselive" data-drupal-link-system-path="node/199">Watch live.house.gov</a>
+                    </li>
+                </ul>
+
+
+
+            </section>
+
+        </div>
+
+
+        <script>
+            var elementExists = document.getElementById("required-jobnum");
+
+            if ( elementExists ){
+
+                function getURLParameter(name) {
+                    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+                }
+
+                var url_string = document.URL;
+//var url = new URL(url_string);
+                var url = window.location.search;
+                console.log(url);
+
+                var vacancy  = getURLParameter('vacancy');
+                var position = getURLParameter('position');
+                console.log(vacancy);
+                console.log(position);
+
+                document.getElementById('required-jobnum').value = vacancy;
+                document.getElementById('required-jobtitle').value = position;
+
+            }
+        </script>
+
+
+    </footer>
+
+
+
+</div>
+
+
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"blank","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"data":{"extlink":{"extTarget":true,"extTargetAppendNewWindowLabel":"(opens in a new window)","extTargetNoOverride":false,"extNofollow":false,"extNoreferrer":false,"extFollowNoOverride":false,"extClass":"ext","extLabel":"(link is external)","extImgClass":false,"extSubdomains":false,"extExclude":"(www\\.house\\.gov)|(search.\\house\\.gov)|(ziplook\\.house\\.gov)|(www\\.dev-hir\\.house\\.gov)|(www\\.stg-hir\\.house\\.gov)|(cloud-preview\\.house\\.gov)","extInclude":"","extCssExclude":"","extCssInclude":"","extCssExplicit":"","extAlert":false,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","extHideIcons":false,"mailtoClass":"0","telClass":"","mailtoLabel":"(link sends email)","telLabel":"(link is a phone number)","extUseFontAwesome":false,"extIconPlacement":"append","extFaLinkClasses":"fa fa-external-link","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"","extAdditionalMailtoClasses":"","extAdditionalTelClasses":"","extFaTelClasses":"fa fa-phone","whitelistedDomains":null,"extExcludeNoreferrer":""}},"entity_ref_tab_formatter":{"accordion":{"entity-ref-accordion-formatter":[]}},"housegov_in_session":{"url":"https:\/\/www.house.gov\\/in-session.php","text_house_in_session":"119th Congress, 1st Session \u0026middot; The House is in session \u0026middot; \u003Ca class=\u0022houseLiveHome\u0022 title=\u0022Link to live.house.gov\u0022 target=\u0022_blank\u0022 href=\u0022https:\/\/live.house.gov\/\u0022\u003EWatch Live House Floor Proceedings\u003C\/a\u003E","text_house_not_in_session":"119th Congress, 1st Session \u0026middot; The House is not in session."},"user":{"uid":0,"permissionsHash":"55266a7a335780cd27e9f0637104badf034981b4d980ce5dc49516763d083f67"}}</script>
+<script src="https://www.house.gov/sites/default/files/js/js_Ig3j_J5zoLro_xPEmXt7WS4tzdmpgz6NEX10WEAotDE.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=housegov&amp;include=eJxtjEEOwyAMBD8E5UnIEAdQHRzZTtT8vlRqmh5y25mVpvKmWHgPhTgBebWDWi-unt4qLnhhYjY1gdVnlj9_Dp9BPpMcvmyUnmGSbQV6fNFht2ZHFJyjQYozywJmKAHyKE6N--V--dh6VFQdb7hxb1tCTyk"></script>
+
+<script src="https://js.arcgis.com/3.26/"></script>
+<script>
+
+    var map;
+    var kmlUrl;
+    var alreadyZoomed = false;
+    var zip = "28804";
+    var	districts=["NC11"];
+
+    var searchAddy = "28804";
+    Stateabbr = districts[0].substring(0, 2);
+    if (Stateabbr == "AQ" ||
+        Stateabbr == "DC" ||
+        Stateabbr == "GU" ||
+        Stateabbr == "PR" ||
+        Stateabbr == "MP" ||
+        Stateabbr == "VI") {
+        zip = zip + " " + Stateabbr;
+    }
+    else {
+        zip = Stateabbr + " " + zip + " USA";
+    }
+    var fips = {
+        "AL":"01",
+        "AK":"02",
+        "AZ":"04",
+        "AR":"05",
+        "CA":"06",
+        "CO":"08",
+        "CT":"09",
+        "DE":"10",
+        "DC":"11",
+        "FL":"12",
+        "GA":"13",
+        "HI":"15",
+        "ID":"16",
+        "IL":"17",
+        "IN":"18",
+        "IA":"19",
+        "KS":"20",
+        "KY":"21",
+        "LA":"22",
+        "ME":"23",
+        "MD":"24",
+        "MA":"25",
+        "MI":"26",
+        "MN":"27",
+        "MS":"28",
+        "MO":"29",
+        "MT":"30",
+        "NE":"31",
+        "NV":"32",
+        "NH":"33",
+        "NJ":"34",
+        "NM":"35",
+        "NY":"36",
+        "NC":"37",
+        "ND":"38",
+        "OH":"39",
+        "OK":"40",
+        "OR":"41",
+        "PA":"42",
+        "RI":"44",
+        "SC":"45",
+        "SD":"46",
+        "TN":"47",
+        "TX":"48",
+        "UT":"49",
+        "VT":"50",
+        "VA":"51",
+        "WA":"53",
+        "WV":"54",
+        "WI":"55",
+        "WY":"56",
+        "AS":"60",
+        "FM":"64",
+        "GU":"66",
+        "MH":"68",
+        "MP":"69",
+        "PW":"70",
+        "PR":"72",
+        "UM":"74",
+        "VI":"78",
+    }
+    var district = districts[0];
+
+    // Fix for American Samoa
+    if(Stateabbr == "AQ")
+    {
+        district = district.replace("AQ","AS");
+    }
+
+
+    var stateTwoLetterCode = district.substring(0, 2); // state
+    var districtTwoDigitCode = district.substring(2, 4); // district number
+
+    // Fix for territories (change 00 to 98 but only for territories; at large like MT00 should not change
+    if (stateTwoLetterCode == "AS" ||
+        stateTwoLetterCode == "DC" ||
+        stateTwoLetterCode == "GU" ||
+        stateTwoLetterCode == "PR" ||
+        stateTwoLetterCode == "MP" ||
+        stateTwoLetterCode == "VI"  ){
+        districtTwoDigitCode = "98";
+    }
+
+    var distCode = fips[stateTwoLetterCode] + districtTwoDigitCode;
+
+
+    var latlng = new Array();
+    try {
+        latlng = [35.635844,-82.55992];
+    } catch(e) {}
+
+    debug=false;
+
+    /*******************************************
+     *** ESRI MAPS CODING
+     *** Starting application and instantiating all
+     *** of the peices needed by ESRI Maps
+     *******************************************/
+    require([
+        "esri/map",
+        "esri/layers/FeatureLayer",
+        "esri/renderers/SimpleRenderer",
+        "esri/symbols/SimpleFillSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/Color",
+        "esri/tasks/query",
+        "esri/layers/KMLLayer",
+        "esri/dijit/Search",
+        "dojo/parser",
+        "dojo/dom-style",
+        "dojo/on",
+        "dojo/domReady!"
+    ], function(Map,FeatureLayer,SimpleRenderer,SimpleFillSymbol,SimpleLineSymbol,Color,query,KMLLayer,Search, parser, domStyle, on) {
+
+        map = new Map("map",{
+            basemap: "streets",
+            zoom: 5
+        });
+
+        parser.parse();
+
+        var usdistrictlayer = new FeatureLayer("https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/USA_119th_Congressional_Districts/FeatureServer/0");
+
+        var symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
+            new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
+                new Color([0,0,0, 0.35]), 2),
+            new Color([109, 146, 155, 0.35]));
+
+        usdistrictlayer.setRenderer(new SimpleRenderer(symbol));
+
+
+        usdistrictlayer.setDefinitionExpression("DISTRICTID = '"+distCode+"'");
+
+
+        usdistrictlayer.queryFeatures(query, function(result){
+            var extent = esri.graphicsExtent(result.features);
+            map.setExtent(extent,true);
+        });
+
+        map.addLayers([usdistrictlayer]);
+
+
+        /************************************
+         ** Search function to find Zip/Address entered.
+         ** Sources piece ensures only searching within
+         ** The Uniri/tasks/query",ed States, so as to make sure
+         ** the map stays above the searched area
+         **************************************/
+
+        var search = new Search({
+            enableLabel: false,
+            enableInfoWindow: false,
+            zoomScale: 8,
+            map: map
+        }, "");
+
+        var sources = search.get("sources");
+        sources.push ({
+            countryCode : "US"
+        });
+
+
+    });
+
+</script>
+</body>
+</html>
