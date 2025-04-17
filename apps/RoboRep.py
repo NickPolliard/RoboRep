@@ -32,8 +32,14 @@ pandas.set_option('expand_frame_repr', False)
 
 
 # Page Grid object generation
-page_grid = Grid(rows=2,cols=4, specs=[[{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}], [{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}]],
-                 row_kwargs=[{'className': 'p-2'}, {'className': 'p-2'}],
+page_grid = Grid(rows=3,
+                 cols=4,
+                 specs=[
+                     [{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}],
+                     [{'width': 3}, {'width': 9}, None, None],
+                     [{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}],
+                 ],
+                 row_kwargs=[{'className': 'p-2'}, {'className': 'p-2'}, {'className': 'p-2'}],
                  div_class_name='page-grid')
 
 # region Row for nav and continue button
@@ -62,9 +68,17 @@ form = dbc.Form(
         className="g-2",
     )
 )
-@dapp.callback(Output('rep-div', 'children'), [Input('submit-button', 'n_clicks'), Input('zip-input', 'value')])
+@dapp.callback(Output('rep-div', 'children'),
+               [Input('submit-button', 'n_clicks'), Input('zip-input', 'value')],
+               )
 def on_button_click(n, value):
-    if n == 1:
+    if value is None:
+        return
+    if len(value) < 5 < len(value):
+        return html.P('Invalid Zip')
+
+    changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
+    if 'submit-button' in changed_id:
         url = f'https://ziplook.house.gov/htbin/findrep_house?ZIP={value}'
         response = requests.get(url)
         html_content = response.text
@@ -74,11 +88,9 @@ def on_button_click(n, value):
             .replace('name', 'id') \
             .replace('border', 'width')
         dash_div = HTMLDash.html_to_dash(html_string)
-
-        # page_grid.add_element(dash_div, 2, 2)
         return dash_div
     else:
-        return html.P('Nothing To Show Here')
+        return html.P('')
 
 page_grid.add_element(form, 2, 1)
 
