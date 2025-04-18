@@ -18,12 +18,43 @@ from apps.elements.navbar import navbar, banner
 from apps.elements.plan import Grid
 
 from routines import HTMLDash
+from apps.data.state_names import name_to_abbreviation
 
 
 pandas.options.display.float_format = '{:,.10f}'.format
 pandas.set_option("display.max_columns", 20)
 pandas.set_option('expand_frame_repr', False)
 
+
+def strip_html(div):
+    html_string = str(div[0])
+
+    html_string = html_string \
+        .replace('name', 'id') \
+        .replace('border', 'width') \
+        .replace('style type', 'style')
+    return HTMLDash.html_to_dash(html_string)
+
+
+def get_house_rep(value):
+    url = f'https://ziplook.house.gov/htbin/findrep_house?ZIP={value}'
+    response = requests.get(url)
+    html_content = response.text
+    soup = BeautifulSoup(html_content, "html.parser")
+    rep_div = soup.find_all("div", {"class": "repdistrict"})
+
+    return strip_html(rep_div)
+
+
+def get_senate_reps(state):
+    state_abbrv = name_to_abbreviation[state]
+    url = f'https://www.senate.gov/states/{state_abbrv}/intro.htm'
+    response = requests.get(url)
+    html_content = response.text
+    soup = BeautifulSoup(html_content, "html.parser")
+    div_column = soup.find_all('div', {'class': 'state-column'})
+
+    return HTMLDash.html_to_dash(str(div_column[0])), HTMLDash.html_to_dash(str(div_column[1]))
 
 
 ##################
@@ -32,15 +63,11 @@ pandas.set_option('expand_frame_repr', False)
 
 
 # Page Grid object generation
-page_grid = Grid(rows=3,
-                 cols=4,
-                 specs=[
-                     [{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}],
-                     [{'width': 3}, {'width': 9}, None, None],
-                     [{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}],
-                 ],
-                 row_kwargs=[{'className': 'p-2'}, {'className': 'p-2'}, {'className': 'p-2'}],
-                 div_class_name='page-grid')
+page_grid = Grid(rows=3, cols=4, specs=[
+    [{'width': 3}, {'width': 3}, {'width': 3}, {'width': 3}],
+    [{'width': 3}, {'width': 9}, None, None],
+    [{'width': 3}, {'width': 9}, None, None],
+], row_kwargs=[{'className': 'p-2'}, {'className': 'p-2'}, {'className': 'p-2'}], div_class_name='page-grid')
 
 # region Row for nav and continue button
 nav_row = html.Div([
@@ -71,7 +98,7 @@ form = dbc.Form(
 @dapp.callback(Output('rep-div', 'children'),
                [Input('submit-button', 'n_clicks'), Input('zip-input', 'value')],
                )
-def on_button_click(n, value):
+def on_submit_click(n, value):
     if value is None:
         return
     if len(value) < 5 < len(value):
@@ -79,16 +106,10 @@ def on_button_click(n, value):
 
     changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
     if 'submit-button' in changed_id:
-        url = f'https://ziplook.house.gov/htbin/findrep_house?ZIP={value}'
-        response = requests.get(url)
-        html_content = response.text
-        soup = BeautifulSoup(html_content, "html.parser")
-        rep_div = soup.find_all("div", {"class": "repdistrict"})
-        html_string = str(rep_div[0]) \
-            .replace('name', 'id') \
-            .replace('border', 'width')
-        dash_div = HTMLDash.html_to_dash(html_string)
-        return dash_div
+        house_div = get_house_rep(value)
+        state = house_div.children[3].children[6].split('of ')[-1].split('.')[0]
+        senate_1, senate_2 = get_senate_reps(state)
+        return html.Div([house_div, senate_1, senate_2], id='reps')
     else:
         return html.P('')
 

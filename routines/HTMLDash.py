@@ -12,6 +12,8 @@ class DashHTMLParser(HTMLParser):
     @staticmethod
     def get_dash_tag_class(tag):
         tag_title = tag.title()
+        if 'style' in tag_title.lower():
+            tag_title = 'Div'
         if not hasattr(html, tag_title):
             raise ValueError(f'Can not find Dash HTML tag {tag_title}')
 
@@ -66,11 +68,16 @@ class DashHTMLParser(HTMLParser):
 
     def handle_data(self, data):
         # Set Children to always be a list
-        if type(self._stack[-1].children) is not list:
-            self._stack[-1].children = []
-
+        if len(self._stack) > 0:
+            if type(self._stack[-1].children) is not list:
+                self._stack[-1].children = []
+        else:
+            self._stack = [html.Div([html.Span([])])]
         # Append tag on to parent tag
-        self._stack[-1].children.append(data)
+        if data is None:
+            pass
+        else:
+            self._stack[-1].children.append(data)
 
 
 def html_to_dash(html_string):
