@@ -10,7 +10,7 @@ from apps import RoboRep
 from apps import AdminPage
 
 dapp.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
+    dcc.Location(id='url', refresh=True),
     html.Div(id='page-content')
 ])
 
