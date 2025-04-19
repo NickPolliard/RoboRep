@@ -10,7 +10,7 @@ import dash_bootstrap_components as dbc
 #################
 
 # Set up Dashboard and create layout
-external_stylesheets=[dbc.themes.LITERA, dbc.icons.FONT_AWESOME]
+external_stylesheets=[dbc.themes.DARKLY, dbc.icons.FONT_AWESOME]
 
 dapp = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = dapp.server
